@@ -1,0 +1,56 @@
+
+.panel{
+    background-color: black;
+    color: white;
+    font-size: 14pt;
+    text-align: center;
+    width: 250px;
+    padding: 10px;
+}
+
+.panel-link-side{
+    height: 30px;
+}
+
+.panel-name{
+    font-size: 24px;
+    height: 50px;
+    padding: 10px;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+}
+
+a:visited{
+    color: white;
+}
+
+a:active{
+    color: violet;
+}
+
+header{
+    margin: 0%;
+    padding: 0%;
+}
+
+header div{
+    background-color: black;
+    height: 25px;
+}
+
+.container-top{
+    display: flex;
+    height: 50px;
+    width: 600px;
+    border: 1px solid black;
+    justify-content: space-around;
+}
+.main{
+    width: 100px;
+    border: 1px solid black;
+    text-align: center;
+}
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="EN">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Osago Region</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <header class="top">
+        <p><a href="index.html"><img src="../static/images/osago.jpg"></a></p>
+        <div></div>
+    </header>
+    <div class="panel">
+
+        <div class="panel-name">
+            <p><b>Панель управления</b></p>
+        </div>
+        <div class="panel-link-side">
+            <a href="cars.html">Автомобили</a>
+        </div>
+        <div class="panel-link-side">
+            <a href="maintenance.html">Техобслуживание</a>
+        </div>
+        <div class="panel-link-side">
+            <a href="owner.html">Клиенты</a>
+        </div>
+        <div class="panel-link-side">
+            <a href="employees.html">Сотрудники</a>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Фото</th>
+                <th>Название</th>
+                <th>Модель</th>
+                <th>Год</th>
+                <th>Номер</th>
+                <th>Вин код</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="car : ${cars}">
+                <!--/*@thymesVar id="car" type="com.regionosago.cms.persistence.entities.Cars"*/-->
+                <span th:if="${car.status}">
+                            <td th:text="${iterator.index + 1}" />
+                            <td>
+                                <a th:href="@{'/cars/' + ${car.id}}">[[ ${car.model} ]]</a>
+                            </td>
+                            <td>
+                                <div>
+                                    <img th:src="@{'/cars/img/' + ${car.id}}" alt="" width="50px" height="50px" />
+                                </div>
+                            </td>
+                            <td th:text="${car.serial}" />
+                            <td th:text="${car.model}"/>
+                            <td th:text="${car.carYear}" />
+
+                        </span>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
