@@ -24,21 +24,14 @@ public class CarService{
         return carRepository.findById(id);
     }
 
-    public List<Cars> findAll(){
+    public List<Cars> findAllCars(){
         return carRepository.findAll();
-    }
-
-    public void deleteById(UUID id){
-        carRepository.deleteById(id);
     }
 
     public Optional<Cars> findById(UUID id){
         return carRepository.findById(id);
     }
 
-    public Cars saveCar(Cars car){
-        return carRepository.save(car);
-    }
 
 
 
@@ -49,7 +42,7 @@ public class CarService{
             .serial(carDto.getSerial())
             .number(carDto.getNumber())
             .serial(carDto.getSerial())
-            .status(carDto.getStatus())
+//            .status(carDto.getStatus())
             .to(carDto.getTo())
         .build();
 

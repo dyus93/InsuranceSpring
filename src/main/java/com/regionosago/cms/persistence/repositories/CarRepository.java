@@ -8,13 +8,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CarRepository extends JpaRepository<Cars, UUID> {
-    List<Cars> findCarsByStatus(CarStatus status);
 
-    List<Cars> findCarsByModel(String model);
-
-    List<Cars> findCarsBySerial(String serial);
-
-    List<Cars> findCarsByNumber(String number);
-
-    List<Cars> findCarsByVinCode(String vinCode);
 }

@@ -16,6 +16,6 @@ public class CarDto {
     private String number;
     private String vinCode;
     private int year;
-    private CarStatus status;
+//    private CarStatus status;
     private TO to;
 }

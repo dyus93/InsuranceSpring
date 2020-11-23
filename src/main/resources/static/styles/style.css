@@ -6,6 +6,7 @@
     text-align: center;
     width: 250px;
     padding: 10px;
+    float: left;
 }
 
 .panel-link-side{
@@ -41,16 +42,28 @@ header div{
     height: 25px;
 }
 
-.container-top{
+.container{
     display: flex;
-    height: 50px;
-    width: 600px;
-    border: 1px solid black;
     justify-content: space-around;
-}
-.main{
-    width: 100px;
-    border: 1px solid black;
-    text-align: center;
+    position: absolute;
+    left: 300px;
 }
 
+table{
+    width: 900px;
+    border: 1px solid black;
+    align-content: center;
+}
+
+.number{
+    width: 25px;
+}
+
+.icon-img img{
+    border: 1px solid black;
+}
+
+.thead{
+    background-color: black;
+    color: white;
+}

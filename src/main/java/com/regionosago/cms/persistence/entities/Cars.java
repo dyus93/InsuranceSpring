@@ -33,8 +33,8 @@ public class Cars extends PersistableEntity {
     @Column(name = "fld_vincode")
     private String vinCode;
 
-    @Enumerated
-    private CarStatus status;
+//    @Enumerated
+//    private CarStatus status;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "fld_to_id")

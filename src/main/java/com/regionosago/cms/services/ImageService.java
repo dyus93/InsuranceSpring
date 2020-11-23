@@ -8,7 +8,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
-import javax.naming.MalformedLinkException;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,7 +28,7 @@ public class ImageService {
     public BufferedImage loadFileAsResource(String id) throws IOException {
         try{
             String imageName = getImageForCar(UUID.fromString(id));
-            Resource resource = new ClassPathResource("/static/img/" + imageName);
+            Resource resource = new ClassPathResource("/static/images/" + imageName);
             if (resource.exists()){
                 return ImageIO.read(resource.getFile());
             }else {

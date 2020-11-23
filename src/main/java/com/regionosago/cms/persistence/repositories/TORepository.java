@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface TORepository extends JpaRepository<TO, UUID> {
 
-    @Query(value = "SELECT osago.public.tbl_to.fld_date FROM osago.public.tbl_to INNER JOIN osago.public.tbl_cars p ON " +
-            "tbl_to.id_to = p.fld_to_id WHERE p.fld_to_id = :id", nativeQuery = true)
-    String obtainTOByCar(@Param("id") UUID id);
+//    @Query(value = "SELECT osago.public.tbl_to.fld_date FROM osago.public.tbl_to INNER JOIN osago.public.tbl_cars p ON " +
+//            "tbl_to.id_to = p.fld_to_id WHERE p.fld_to_id = :id", nativeQuery = true)
+//    String obtainTOByCar(@Param("id") UUID id);
 }

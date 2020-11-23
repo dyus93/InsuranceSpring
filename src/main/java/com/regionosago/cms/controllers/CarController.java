@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.imageio.ImageIO;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
