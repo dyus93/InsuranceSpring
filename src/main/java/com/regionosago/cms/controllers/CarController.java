@@ -1,6 +1,7 @@
 package com.regionosago.cms.controllers;
 
-import com.regionosago.cms.persistence.entities.Cars;
+import com.regionosago.cms.dto.CarDto;
+import com.regionosago.cms.persistence.entities.Image;
 import com.regionosago.cms.services.CarService;
 import com.regionosago.cms.services.ImageService;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.io.ByteArrayOutputStream;
@@ -22,41 +24,32 @@ public class CarController {
     private final ImageService imageService;
     private final CarService carService;
 
+//    @GetMapping("/{id}")
+//    public String getOne(Model model, @PathVariable String id){
+//       carService.getOneById(UUID.fromString(id)).ifPresent(
+//               car -> model.addAttribute("car", car)
+//                );
+//        return "cars";
+//    }
 
-    public String getOne(Model model, @PathVariable String id){
-       model.addAttribute("cars", carService.getOneById(UUID.fromString(id)));
+    @GetMapping
+    public String CarPage(Model model){
+        model.addAttribute("cars", carService.findAllCars());
         return "cars";
     }
 
-//    @GetMapping("car-create")
-//    public String createCarForm(Cars car){
-//        return "car-create"; //создать html страницу с таким названием
-//    }
+    @PostMapping
+    public String addCar(@RequestParam("image") MultipartFile image, CarDto carDto) throws IOException{
+        Image img = imageService.uploadImage(image, carDto.getModel());
+        carService.save(carDto, img);
+        return "redirect:/";
+    }
 
-//    @PostMapping("/car-create")
-//    public String createCar(Cars car){
-//        carService.saveCar(car);
-//        return "redirect:/cars";
-//    }
-
-//    @GetMapping("car-delete/{id}")
-//    public String deleteCar(@PathVariable("id") UUID id){
-//        carService.deleteById(id);
-//        return "redirect:/cars";
-//    }
-
-//    @GetMapping("car-update/{id}")
-//    public String updateCarForm(@PathVariable("id") UUID id, Model model){
-//        Optional<Cars> car = carService.findById(id);
-//        model.addAttribute("car", car);
-//        return "/car-update";
-//    }
-
-//    @PostMapping("/cars")
-//    public String updateCar(Cars car){
-//        carService.saveCar(car);
-//        return "redirect:/cars";
-//    }
+    @GetMapping("/remove/{id}")
+    public String deleteCar( @PathVariable UUID id){
+        carService.deleteById(id);
+        return "redirect:/cars";
+    }
 
     @GetMapping(value = "/images/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody

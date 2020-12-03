@@ -5,8 +5,10 @@ import com.regionosago.cms.persistence.entities.enums.CarStatus;
 import com.regionosago.cms.persistence.entities.utils.PersistableEntity;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -36,17 +38,17 @@ public class Cars extends PersistableEntity {
 //    @Enumerated
 //    private CarStatus status;
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fld_to_id")
-    private TO to;
-
-    @OneToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fld_clients_id")
-    private Clients client;
-
-    @OneToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fld_fine_id")
-    private Fine fine;
+//    @OneToOne(optional = false, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "fld_to_id")
+//    private TO to;
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "fld_clients_id")
+//    private Clients client;
+//
+//    @OneToOne(optional = false, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "fld_fine_id")
+//    private Fine fine;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "fld_image_id")

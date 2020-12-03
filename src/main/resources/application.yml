@@ -1,6 +1,9 @@
 server:
   servlet:
-    context-path: /osago
+    context-path: /frent
+  error:
+    whitelabel:
+      enabled: false
 
 spring:
   datasource:
@@ -11,4 +14,9 @@ spring:
   jpa:
     show-sql: true
   thymeleaf:
-      cache: true
+      cache: false
+
+files:
+  path:
+    icons: "/Users/serge/Documents/upload/icons"
+    images: "/Users/serge/Documents/upload/images"

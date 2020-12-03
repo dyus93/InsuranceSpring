@@ -1,69 +1,11 @@
-
-.panel{
-    background-color: black;
-    color: white;
-    font-size: 14pt;
-    text-align: center;
-    width: 250px;
-    padding: 10px;
-    float: left;
+.btn-up{
+    opacity: 0;
 }
 
-.panel-link-side{
-    height: 30px;
+.span-line:hover .btn-up{
+    opacity: 1;
 }
 
-.panel-name{
-    font-size: 24px;
-    height: 50px;
-    padding: 10px;
-}
 
-a{
-    color:white;
-    text-decoration:none;
-}
 
-a:visited{
-    color: white;
-}
 
-a:active{
-    color: violet;
-}
-
-header{
-    margin: 0%;
-    padding: 0%;
-}
-
-header div{
-    background-color: black;
-    height: 25px;
-}
-
-.container{
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    left: 300px;
-}
-
-table{
-    width: 900px;
-    border: 1px solid black;
-    align-content: center;
-}
-
-.number{
-    width: 25px;
-}
-
-.icon-img img{
-    border: 1px solid black;
-}
-
-.thead{
-    background-color: black;
-    color: white;
-}

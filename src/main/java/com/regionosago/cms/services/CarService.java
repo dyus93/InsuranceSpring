@@ -2,6 +2,7 @@ package com.regionosago.cms.services;
 
 import com.regionosago.cms.dto.CarDto;
 import com.regionosago.cms.persistence.entities.Cars;
+import com.regionosago.cms.persistence.entities.Image;
 import com.regionosago.cms.persistence.repositories.CarRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -28,23 +29,21 @@ public class CarService{
         return carRepository.findAll();
     }
 
-    public Optional<Cars> findById(UUID id){
-        return carRepository.findById(id);
+    public void deleteById(UUID id){
+        carRepository.deleteById(id);
     }
 
-
-
-
-    public String save(CarDto carDto){
+    public String save(CarDto carDto, Image image){
         Cars car = Cars.builder()
-            .carYear(carDto.getYear())
-            .model(carDto.getModel())
-            .serial(carDto.getSerial())
-            .number(carDto.getNumber())
-            .serial(carDto.getSerial())
+                .carYear(carDto.getYear())
+                .model(carDto.getModel())
+                .serial(carDto.getSerial())
+                .number(carDto.getNumber())
+                .vinCode(carDto.getVinCode())
 //            .status(carDto.getStatus())
-            .to(carDto.getTo())
-        .build();
+//            .to(carDto.getTo())
+                .image(image)
+            .build();
 
         carRepository.save(car);
         log.info("New Car added {}", car);
